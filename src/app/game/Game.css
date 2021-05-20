@@ -1,18 +1,48 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100vw;
-    min-height: 100vh;
-    padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 8px;
 }
 
 .bottom-box {
-    height: 80px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  min-height: calc(100vh - 96px);
+  padding: 16px;
+  border: 2px solid cadetblue;
+  border-radius: 8px;
+}
+
+.page {
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+}
+
+.page:hover {
+  transform: rotateY(180deg);
+}
+
+.front {
+  backface-visibility: hidden;
+}
+
+.back {
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
 }

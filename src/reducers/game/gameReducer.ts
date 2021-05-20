@@ -8,7 +8,10 @@ const initialState: GameState = {
 export const gameReducer = (state = initialState, action: GameAction) => {
   switch (action.type) {
     case GameActionType.CHOOSE_PAGE:
-      return { ...state, activePage: action.payload };
+      return { ...state, activePage: action.payload.activePage };
+
+    case GameActionType.UPDATE_PLAYER_NAME:
+      return { ...state, playerName: action.payload.playerName };
 
     default:
       return state;
