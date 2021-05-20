@@ -1,24 +1,18 @@
 import './GamePage.css';
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { GameState } from 'reducers/game/gameReducer.types';
+import { updateFlips } from 'actions/game/gameActions';
 
 export const GamePage = () => {
-  const [cardFlip, setCardFlip] = useState<boolean[]>([]);
-
+  const dispatch = useDispatch();
   const cards = useSelector<GameState, GameState['cards']>((state) => state.cards) || [];
+  const flips = useSelector<GameState, GameState['flips']>((state) => state.flips) || [];
 
   const handleClick = (index: number) => {
-    const newCardFlip = [...cardFlip];
+    const newCardFlip = [...flips];
     newCardFlip[index] = !newCardFlip[index];
-    setCardFlip([...newCardFlip]);
+    dispatch(updateFlips([...newCardFlip]));
   };
-
-  useEffect(() => {
-    const flips = new Array(12);
-    flips.fill(false);
-    setCardFlip([...flips]);
-  }, []);
 
   if (!cards) return null;
 
@@ -27,7 +21,7 @@ export const GamePage = () => {
       <div className="table">
         {cards.length > 0 &&
           cards.map((card, index) => (
-            <div key={`${card.value}-${index}`} className={`card-grid-box ${cardFlip[index] ? 'flip' : 'no-flip'}`}>
+            <div key={`${card.value}-${index}`} className={`card-grid-box ${flips[index] ? 'flip' : 'no-flip'}`}>
               <div
                 style={{
                   backgroundImage: `url('${card.images.png}')`,

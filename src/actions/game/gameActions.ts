@@ -20,3 +20,8 @@ export const dealCards = (cards: Card[]): GameAction => ({
   type: GameActionType.DEAL_CARDS,
   payload: { cards },
 });
+
+export const updateFlips = (flips: boolean[]): GameAction => ({
+  type: GameActionType.UPDATE_FLIPS,
+  payload: { flips },
+});
