@@ -5,7 +5,9 @@ const initialState: GameState = {
   numberOfPages: 3,
   playerName: '',
   deck: '',
+  flips: [],
 };
+
 export const gameReducer = (state = initialState, action: GameAction) => {
   switch (action.type) {
     case GameActionType.CHOOSE_PAGE:
@@ -19,6 +21,9 @@ export const gameReducer = (state = initialState, action: GameAction) => {
 
     case GameActionType.DEAL_CARDS:
       return { ...state, cards: action.payload.cards };
+
+    case GameActionType.UPDATE_FLIPS:
+      return { ...state, flips: action.payload.flips };
 
     default:
       return state;

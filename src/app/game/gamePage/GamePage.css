@@ -31,7 +31,6 @@
   background-repeat: no-repeat;
   background-position: center;
   backface-visibility: hidden;
-  transform: rotateY(180deg);
 }
 
 .card-box-back {
@@ -47,4 +46,8 @@
 
 .flip {
   transform: rotateY(180deg);
+}
+
+.no-flip {
+  transform: none;
 }

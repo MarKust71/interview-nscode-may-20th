@@ -2,7 +2,7 @@ import './WelcomePage.css';
 import { ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GameState } from 'reducers/game/gameReducer.types';
-import { chosePage, dealCards, setDeck, updatePlayerName } from 'actions/game/gameActions';
+import { chosePage, dealCards, setDeck, updateFlips, updatePlayerName } from 'actions/game/gameActions';
 import { shuffleArray } from 'helpers/shuffle';
 import { fetchDeck } from 'providers/game/fetchDeck';
 import { fetchCards } from 'providers/game/fetchCards';
@@ -28,6 +28,10 @@ export const WelcomePage = () => {
         const cardsToShuffle = [...cards, ...cards];
         shuffleArray(cardsToShuffle);
         dispatch(dealCards(cardsToShuffle));
+
+        const flips = new Array(12);
+        flips.fill(false);
+        dispatch(updateFlips([...flips]));
       } catch (error) {
         console.log(error.message);
       }
