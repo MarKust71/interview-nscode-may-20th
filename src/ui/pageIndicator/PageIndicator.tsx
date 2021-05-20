@@ -16,14 +16,15 @@ export const PageIndicator: React.FC<PageIndicatorProps> = () => {
 
   return (
     <div className="page-indicator">
-      {pages.map((isActive, index) => {
-        return (
-          <>
-            <PageIndicatorItem active={activePage === index + 1} onClick={() => dispatch(chosePage(index + 1))} />
-            {index < pages.length - 1 && <div style={{ marginRight: 4 }} />}
-          </>
-        );
-      })}
+      <div className="page-indicator-grid">
+        {pages.map((isActive, index) => {
+          return (
+            <div key={`key-${index}`}>
+              <PageIndicatorItem active={activePage === index + 1} onClick={() => dispatch(chosePage(index + 1))} />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
