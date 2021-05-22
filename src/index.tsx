@@ -3,13 +3,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { store } from './store/demo/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
+import { gameStore } from './store/game/gameStore';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={gameStore}>
       <App />
     </Provider>
   </React.StrictMode>,

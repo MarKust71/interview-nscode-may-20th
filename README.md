@@ -46,3 +46,5 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 https://deckofcardsapi.com/
 
 https://brave-poitras-23b42f.netlify.app/
+
+https://docs.google.com/document/d/1mwEbIxNnljxGcdJzQecNeLDwCMGzbKJ3AAPPQMq1OTE/edit

@@ -1,8 +1,19 @@
+import { shuffleArray } from 'helpers/shuffle';
+import { Card } from 'app/game/gamePage/GamePage.types';
+
 export const fetchCards = async (url: string) => {
-  const response = await fetch(url);
+  let response;
+  response = await fetch(url);
   if (!response.ok) {
-    console.log(response);
-    return [];
+    if (response.status === 500) {
+      console.log('fetch cards retry...');
+      await setTimeout(async () => {
+        response = await fetch(url);
+      }, 1000);
+    } else {
+      console.log(response);
+      return [];
+    }
   }
   const json = await response.json();
 
@@ -11,5 +22,9 @@ export const fetchCards = async (url: string) => {
     return [];
   }
 
-  return json.cards;
+  const duplicates: Card[] = json.cards.map((item: Card) => ({ ...item }));
+  const cardsToShuffle = [...json.cards, ...duplicates];
+  shuffleArray(cardsToShuffle);
+
+  return cardsToShuffle;
 };
