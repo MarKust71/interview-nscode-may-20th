@@ -9,8 +9,6 @@ function App() {
   return (
     <Provider store={gameStore}>
       <Root>
-        {/*<Demo />*/}
-
         <Game />
       </Root>
     </Provider>

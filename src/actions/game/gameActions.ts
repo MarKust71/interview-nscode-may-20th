@@ -25,3 +25,28 @@ export const updateFlips = (flips: boolean[]): GameAction => ({
   type: GameActionType.UPDATE_FLIPS,
   payload: { flips },
 });
+
+export const removeCard = (cardIndexes: number[]): GameAction => ({
+  type: GameActionType.REMOVE_CARD,
+  payload: { cardIndexes },
+});
+
+export const timerOn = () => ({
+  type: GameActionType.TIMER_ON,
+  payload: {},
+});
+
+export const timerOff = () => ({
+  type: GameActionType.TIMER_OFF,
+  payload: {},
+});
+
+export const counterIncrease = () => ({
+  type: GameActionType.COUNTER_INCREASE,
+  payload: {},
+});
+
+export const restartGame = () => ({
+  type: GameActionType.RESTART_GAME,
+  payload: {},
+});
